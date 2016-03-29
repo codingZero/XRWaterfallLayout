@@ -40,7 +40,6 @@ ______
 
 
 #效果图
-![](http://upload-images.jianshu.io/upload_images/1429074-562ee593290e04b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
+![](http://upload-images.jianshu.io/upload_images/1429074-7fbb70e2ca3ba419.gif?imageMogr2/auto-orient/strip)
 
     
