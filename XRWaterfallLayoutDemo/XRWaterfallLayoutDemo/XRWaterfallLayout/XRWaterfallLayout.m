@@ -76,16 +76,16 @@
 
 //计算collectionView的contentSize
 - (CGSize)collectionViewContentSize {
-    __block NSNumber *maxColumn = @0;
+    __block NSNumber *maxIndex = @0;
     //遍历字典，找出最长的那一列
     [self.maxYDic enumerateKeysAndObjectsUsingBlock:^(NSNumber *key, NSNumber *obj, BOOL *stop) {
-        if ([self.maxYDic[maxColumn] floatValue] < obj.floatValue) {
-            maxColumn = key;
+        if ([self.maxYDic[maxIndex] floatValue] < obj.floatValue) {
+            maxIndex = key;
         }
     }];
     
     //collectionView的contentSize.height就等于最长列的最大y值+下内边距
-    return CGSizeMake(0, [self.maxYDic[maxColumn] floatValue] + self.sectionInset.bottom);
+    return CGSizeMake(0, [self.maxYDic[maxIndex] floatValue] + self.sectionInset.bottom);
 }
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -107,24 +107,24 @@
     }
     
     //找出最短的那一列
-    __block NSNumber *minColumn = @0;
+    __block NSNumber *minIndex = @0;
     [self.maxYDic enumerateKeysAndObjectsUsingBlock:^(NSNumber *key, NSNumber *obj, BOOL *stop) {
-        if ([self.maxYDic[minColumn] floatValue] > obj.floatValue) {
-            minColumn = key;
+        if ([self.maxYDic[minIndex] floatValue] > obj.floatValue) {
+            minIndex = key;
         }
     }];
     
     //根据最短列的列数计算item的x值
-    CGFloat itemX = self.sectionInset.left + (self.columnSpacing + itemWidth) * minColumn.integerValue;
+    CGFloat itemX = self.sectionInset.left + (self.columnSpacing + itemWidth) * minIndex.integerValue;
     
     //item的y值 = 最短列的最大y值 + 行间距
-    CGFloat itemY = [self.maxYDic[minColumn] floatValue] + self.rowSpacing;
+    CGFloat itemY = [self.maxYDic[minIndex] floatValue] + self.rowSpacing;
     
     //设置attributes的frame
     attributes.frame = CGRectMake(itemX, itemY, itemWidth, itemHeight);
     
     //更新字典中的最大y值
-    self.maxYDic[minColumn] = @(CGRectGetMaxY(attributes.frame));
+    self.maxYDic[minIndex] = @(CGRectGetMaxY(attributes.frame));
     
     return attributes;
 }
