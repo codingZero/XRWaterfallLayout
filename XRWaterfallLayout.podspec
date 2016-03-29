@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "XRWaterfallLayout"
-  s.version      = "0.1.0"
+  s.version      = "0.1.1"
   s.summary      = "a simple waterfall flow layout"
 
   s.homepage     = "https://github.com/codingZero/XRWaterfallLayout"
