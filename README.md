@@ -39,8 +39,8 @@ ______
 6.CGFloat(^itemHeightBlock)(CGFloat, NSIndexPath *)：用来计算每个item高度的block
 
 
-#效果演示
-![](http://upload-images.jianshu.io/upload_images/1429074-b65bc6e6d62ae8bf.gif?imageMogr2/auto-orient/strip)
+#效果图
+![](http://upload-images.jianshu.io/upload_images/1429074-562ee593290e04b0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
     
