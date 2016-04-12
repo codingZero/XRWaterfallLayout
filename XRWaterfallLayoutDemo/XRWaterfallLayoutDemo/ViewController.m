@@ -32,19 +32,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     //创建瀑布流布局
-    //方式一
-//    XRWaterfallLayout *waterfall = [[XRWaterfallLayout alloc] init];
-//    waterfall.columnCount = 3;
-    //方式二
-//    XRWaterfallLayout *waterfall = [[XRWaterfallLayout alloc] initWithColumnCount:3];
-    //方式三
     XRWaterfallLayout *waterfall = [XRWaterfallLayout waterFallLayoutWithColumnCount:3];
     
     //设置各属性的值
 //    waterfall.rowSpacing = 10;
 //    waterfall.columnSpacing = 10;
 //    waterfall.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+    
     //或者一次性设置
     [waterfall setColumnSpacing:10 rowSpacing:10 sectionInset:UIEdgeInsetsMake(10, 10, 10, 10)];
     
@@ -62,10 +58,21 @@
     
     //创建collectionView
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:waterfall];
+    self.collectionView.frame = CGRectMake(0, 50, self.view.frame.size.width, self.view.frame.size.height - 50);
     self.collectionView.backgroundColor = [UIColor whiteColor];
     [self.collectionView registerNib:[UINib nibWithNibName:@"XRCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
     self.collectionView.dataSource = self;
     [self.view addSubview:self.collectionView];
+    
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(100, 20, 100, 30)];
+    [btn addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchUpInside];
+    btn.backgroundColor = [UIColor blueColor];
+    [self.view addSubview:btn];
+}
+
+- (void)click {
+    [self.images removeAllObjects];
+    [self.collectionView reloadData];
 }
 
 

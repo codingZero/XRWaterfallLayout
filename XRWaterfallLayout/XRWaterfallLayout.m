@@ -59,6 +59,7 @@
 #pragma mark- 布局相关方法
 //布局前的准备工作
 - (void)prepareLayout {
+    [super prepareLayout];
     //初始化字典，有几列就有几个键值对，key为列，value为列的最大y值，初始值为上内边距
     for (int i = 0; i < self.columnCount; i++) {
         self.maxYDic[@(i)] = @(self.sectionInset.top);
@@ -66,7 +67,7 @@
     
     //根据collectionView获取总共有多少个item
     NSInteger itemCount = [self.collectionView numberOfItemsInSection:0];
-    
+    [self.attributesArray removeAllObjects];
     //为每一个item创建一个attributes并存入数组
     for (int i = 0; i < itemCount; i++) {
         UICollectionViewLayoutAttributes *attributes = [self layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
