@@ -17,6 +17,11 @@
 
 @end
 
+
+
+/**
+ *实现了瀑布流功能，但是不能添加头部和底部视图，如项目中有添加头部或底部视图的需求，请慎用！！！
+ */
 @interface XRWaterfallLayout : UICollectionViewLayout
 
 #pragma mark- 属性

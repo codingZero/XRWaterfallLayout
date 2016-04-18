@@ -55,19 +55,12 @@
         return image.imageH / image.imageW * itemWidth;
     }];
      */
-    
     //创建collectionView
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:waterfall];
-    self.collectionView.frame = CGRectMake(0, 50, self.view.frame.size.width, self.view.frame.size.height - 50);
     self.collectionView.backgroundColor = [UIColor whiteColor];
     [self.collectionView registerNib:[UINib nibWithNibName:@"XRCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
     self.collectionView.dataSource = self;
     [self.view addSubview:self.collectionView];
-    
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(100, 20, 100, 30)];
-    [btn addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchUpInside];
-    btn.backgroundColor = [UIColor blueColor];
-    [self.view addSubview:btn];
 }
 
 - (void)click {
@@ -92,6 +85,5 @@
     cell.imageURL = self.images[indexPath.item].imageURL;
     return cell;
 }
-
 
 @end
