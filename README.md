@@ -4,18 +4,18 @@ a simple waterfall flow layout
 一个简单的瀑布流布局
 ______
 
-######实现了瀑布流功能，但是不能添加头部和底部视图，如项目中有添加头部或底部视图的需求，请慎用！！！
+###### 实现了瀑布流功能，但是不能添加头部和底部视图，如项目中有添加头部或底部视图的需求，请慎用！！！
 
 
-#使用步骤
-###导入
+# 使用步骤
+### 导入
 将XRWaterfallLayout文件夹中的所有文件添加到项目中
 
 或
 
 使用cocoapods导入，pod 'XRWaterfallLayout'
 
-###使用
+### 使用
 1.导入主头文件 XRWaterfallLayout.h
 
 2.创建XRWaterfallLayout对象，根据需求设置各属性
@@ -26,7 +26,7 @@ ______
 
 
 
-#常用属性及方法
+# 常用属性及方法
 
 1.columnCount：总共有多少列
 
@@ -41,7 +41,7 @@ ______
 6.CGFloat(^itemHeightBlock)(CGFloat, NSIndexPath *)：用来计算每个item高度的block
 
 
-#效果图
+# 效果图
 ![](http://upload-images.jianshu.io/upload_images/1429074-7fbb70e2ca3ba419.gif?imageMogr2/auto-orient/strip)
 
     
